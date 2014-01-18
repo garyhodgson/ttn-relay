@@ -1,0 +1,32 @@
+<div class="row-fluid">
+
+  <div class="span4">
+
+    <h4>Trackers</h4>
+    <ul>
+
+      <li ng-repeat="(id, tracker) in trackers track by id">
+        <a ng-click="showThings(tracker)" href="">
+          <h4>{{ tracker.title||id }}</h4>
+        </a>
+          <small>{{ id }}</small>
+          <p>{{ tracker.description }}</p>
+          <hr>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="span8">
+    <h3>Things</h3>
+    <ul class="thing-list">
+      <li ng-repeat="thing in thingsSummary track by $index">
+        <img class="pull-left thumbnail" width="50" ng-show="thing.thumbnailURL" ng-src="{{ thing.thumbnailURL }}">
+        <h4><a href="#/tracker/{{ thing.trackerId }}/thing/{{ thing.id }}/version/{{ thing.latestVersion }}">{{ thing.title }}</a></h4>
+        <p>{{ thing.summary }}</p>
+        <hr>
+      </li>
+    </ul>
+
+  </div>
+</div>
